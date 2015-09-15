@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 
 gem 'turbolinks'
-
+gem 'devise'
 group :development, :test do
   gem 'rspec-rails', '~> 3.1'
   gem 'factory_girl_rails'
