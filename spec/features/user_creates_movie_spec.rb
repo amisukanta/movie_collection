@@ -13,8 +13,8 @@ feature "User creates movie" do
     end
 
     click_button "Log in"
-    #visit root_path
-    click_on "Add new movie"
+    visit new_movie_path
+    #click_on "Add new movie"
     fill_in "Title", with: "Amerian Gangster"
     fill_in "Summary", with: "Lorem spam lorem spam"
     click_on "Save changes"
