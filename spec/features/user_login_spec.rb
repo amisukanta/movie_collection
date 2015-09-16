@@ -2,14 +2,13 @@ require "rails_helper"
 
 feature "user log in" do
   scenario "allows an existing user to sing in" do
-    password = "123456789"
-    user = build( :user, password: password, password_confirmation: password )
+    user = build( :user )
     visit "users/sign_in"
 
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
 
     click_button "Log in"
-    expect(page).to have_content("Signed in successfully")
+    expect(page).to have_content("Movie Collections")
   end
 end

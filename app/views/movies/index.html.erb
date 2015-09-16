@@ -1,5 +1,4 @@
-<%= link_to 'Add new movie', new_movie_path %>
-
+ <% provide(:title, "Home")%>
 <ul>
   <% @movies.each do |movie| %>
     <li><%= movie.title %></li>
