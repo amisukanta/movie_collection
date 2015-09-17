@@ -11,6 +11,9 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'turbolinks'
 gem 'devise'
+gem 'rmagick'
+gem 'paperclip'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.1'
   gem 'factory_girl_rails'

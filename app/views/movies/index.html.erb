@@ -1,7 +1,31 @@
- <% provide(:title, "Home")%>
- <h1> Movie Collections </h1>
-<ul>
-  <% @movies.each do |movie| %>
-    <li><%= movie.title %></li>
-  <% end %>
-</ul>
+<% provide(:title, "Home")%>
+
+<div class="row">
+  <h1> Movie Collections </h1>
+
+  <ul class="thumbnails files">
+    <% @movies.each do |movie| %>
+        <li class="span4">
+          <div class="thumbnail">
+            <% if movie.pictures.first %>
+            <%= link_to image_tag(movie.pictures.first.image.url), movie_path(movie) %>
+            <% else %>
+              N/A
+            <% end %>
+            <div class="caption">
+              <p style="text-align: center;">
+                <%= movie.title %>
+                <%= link_to "Show", movie_path(movie) %>
+                <%= link_to "Edit", edit_movie_path(movie) %>
+                <%= link_to "Delete", movie,
+                  :data => { :confirm => "Are you sure?" },
+                  :method => :delete
+                %>
+              </p>
+            </div>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+
+</div>
