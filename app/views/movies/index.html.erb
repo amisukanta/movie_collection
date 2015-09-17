@@ -2,30 +2,28 @@
 
 <div class="row">
   <h1> Movie Collections </h1>
-
-  <ul class="thumbnails files">
     <% @movies.each do |movie| %>
-        <li class="span4">
-          <div class="thumbnail">
-            <% if movie.pictures.first %>
-            <%= link_to image_tag(movie.pictures.first.image.url), movie_path(movie) %>
-            <% else %>
-              N/A
-            <% end %>
-            <div class="caption">
-              <p style="text-align: center;">
-                <%= movie.title %>
-                <%= link_to "Show", movie_path(movie) %>
-                <%= link_to "Edit", edit_movie_path(movie) %>
-                <%= link_to "Delete", movie,
-                  :data => { :confirm => "Are you sure?" },
-                  :method => :delete
-                %>
-              </p>
-            </div>
-          </div>
-        </li>
-    <% end %>
-  </ul>
+    <div class="col-sm-6 col-md-4">
 
+      <div class="thumbnail">
+        <% if movie.pictures.first %>
+          <%= link_to image_tag(movie.pictures.first.image.url), movie_path(movie) %>
+        <% else %>
+          N/A
+        <% end %>
+        <div class="caption">
+          <h3><%= movie.title %></h3>
+          <p> <%= movie.summary %> </p>
+          <p>
+             <%= link_to "Show", movie_path(movie), class: "btn btn-primary"  %>
+             <%= link_to "Edit", edit_movie_path(movie), class: "btn btn-default"  %>
+             <%= link_to "Delete", movie,
+                    :data => { :confirm => "Are you sure?" },
+                    :method => :delete, class: "btn btn-warning" 
+                  %>
+          </p>
+        </div>
+      </div>
+    </div>
+ <% end %>
 </div>

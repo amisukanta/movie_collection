@@ -39,21 +39,21 @@ class PicturesController < ApplicationController
     end
   end
 
-  def make_default
-    @picture = Picture.find(params[:id])
-    @movie = Movie.find(params[:movie_id])
-
-    @movie.cover = @picture.id
-    @movie.save
-
-    respond_to do |format|
-      format.js
-    end
-  end
+  # def make_default
+  #   @picture = Picture.find(params[:id])
+  #   @movie = Movie.find(params[:movie_id])
+  #
+  #   @movie.cover = @picture.id
+  #   @movie.save
+  #
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
 
   private
 
   def picture_params
-    params.require(:picture).permit(:description, :movie_id, :image)
+    params.require(:picture).permit( :movie_id, :image )
   end
 end

@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   def index
     @movies = current_user.movies
     respond_to do |format|
-      format.html 
+      format.html
       format.json { render json: @movie }
     end
   end
@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
             @movie.pictures.create(image: image)
           }
         end
-        format.html { redirect_to @movie, notice: 'Movie successfully created.' }
+        format.html { redirect_to movies_path, notice: 'Movie successfully created.' }
           format.json { render json: @movie, status: :created, location: @movie }
       else
         format.html { render action: "new" }
@@ -77,7 +77,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :summary, :pictures)
+    params.require(:movie).permit(:title, :director, :stars, :summary, :pictures)
   end
 
 end
